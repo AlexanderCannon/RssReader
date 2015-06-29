@@ -9,14 +9,12 @@ include 'Model\Story.php';
 
 class RssXmlReader
 {
-    function ReadXml($url)
-    {
+    function ReadXml($url) {
         $xml    = simplexml_load_file($url);
         $y      = sizeof($xml->channel->item);
         $x      = 0;
         $result = [];
-        while ($x < $y )
-        {
+        while ($x < $y ) {
             $item   = null;
             $item   = ($xml->channel->item[$x]);
             $image  = $item->children('media', true)->thumbnail->attributes();
